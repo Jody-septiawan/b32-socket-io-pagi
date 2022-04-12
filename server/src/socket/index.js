@@ -1,5 +1,7 @@
 const socketIo = (io) => {
-  // code here
-}
+  io.on('connection', (socket) => {
+    console.log('client connect: ', socket.id);
+  });
+};
 
-module.exports = socketIo
+module.exports = socketIo;

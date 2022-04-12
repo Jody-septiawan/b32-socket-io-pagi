@@ -1,21 +1,23 @@
 // import hook
-import React from 'react'
+import React, { useEffect } from 'react';
 
-import NavbarAdmin from '../components/NavbarAdmin'
+import NavbarAdmin from '../components/NavbarAdmin';
 
-// import package here
+import { io } from 'socket.io-client';
 
-// init variable here
+let socket;
+
 export default function ComplainAdmin() {
+  const title = 'Complain admin';
+  document.title = 'DumbMerch | ' + title;
 
-    const title = "Complain admin"
-    document.title = 'DumbMerch | ' + title
+  useEffect(() => {
+    io('http://localhost:5000');
+  }, []);
 
-    // code here
-    
-    return (
-        <>
-            <NavbarAdmin title={title} />
-        </>
-    )
+  return (
+    <>
+      <NavbarAdmin title={title} />
+    </>
+  );
 }
